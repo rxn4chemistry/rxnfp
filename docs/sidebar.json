@@ -1,0 +1,12 @@
+{
+  "rxnfp": {
+    "Overview": "/",
+    "Tokenization": "/tokenization",
+    "Transformer fingerprints": "/transformer_fingerprints",
+    "Fingerprint generation": "/generate_fingerprints",
+    "Results - Classification": "/results_classification_50k",
+    "Results - Generate TMAP": "/results_generate_TMAP",
+    "Results - Reaction search example": "/results_reaction_search" ,
+    "Results - Interactive Reaction Atlas": "/tmaps/tmap_ft_10k.html"
+  }
+}
