@@ -2,7 +2,7 @@ include settings.ini
 include LICENSE
 include CONTRIBUTING.md
 include README.md
-include models/transformers/bert_ft/*
-include models/transformers/bert_ft_10k_25s/*
-include models/transformers/bert_pretrained/*
+include rxnfp/models/transformers/bert_ft/*
+include rxnfp/models/transformers/bert_ft_10k_25s/*
+include rxnfp/models/transformers/bert_pretrained/*
 recursive-exclude * __pycache__

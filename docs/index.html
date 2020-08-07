@@ -36,6 +36,12 @@ description: "This library generates chemical reaction fingerprints from reactio
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>For all installations, we recommend using <code>conda</code> to get the necessary <code>rdkit</code> and <code>tmap</code> dependencies:</p>
+<h3 id="From-pypi">From pypi<a class="anchor-link" href="#From-pypi"> </a></h3><div class="highlight"><pre><span></span><span class="go">conda create -n rxnfp python=3.6 -y</span>
+<span class="go">conda activate rxnfp</span>
+<span class="go">conda install -c rdkit rdkit</span>
+<span class="go">conda install -c tmap tmap</span>
+<span class="go">pip install rxnfp</span>
+</pre></div>
 <h3 id="From-github">From github<a class="anchor-link" href="#From-github"> </a></h3><div class="highlight"><pre><span></span><span class="go">conda create -n rxnfp python=3.6 -y</span>
 <span class="go">conda activate rxnfp</span>
 <span class="go">conda install -c rdkit rdkit</span>
@@ -144,7 +150,7 @@ description: "This library generates chemical reaction fingerprints from reactio
 <div style="text-align: center">
 {% include image.html max-width="1000" file="/rxnfp/images/annotated_atlas.jpg" %}
 <p style="text-align: center;"> <b>Figure:</b> Annotated Atlas of the Pistachio test set generated with TMAP (https://tmap.gdb.tools). </p>
-</div><h3 id="Schneider-50k-set">Schneider 50k set<a class="anchor-link" href="#Schneider-50k-set"> </a></h3><p>In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this <strong><a href="./tmaps/tmap_ft_10k.html">interactive Reaction Atlas</a></strong>.</p>
+</div><h3 id="Schneider-50k-set">Schneider 50k set<a class="anchor-link" href="#Schneider-50k-set"> </a></h3><p>In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this <strong><a href="https://rxn4chemistry.github.io/rxnfp//tmaps/tmap_ft_10k.html">interactive Reaction Atlas</a></strong>.</p>
 <p>Where you will find different reaction properties highlighted in the different layers:</p>
 <div style="text-align: center">
 {% include image.html max-width="800" file="/rxnfp/images/tmap_properties.jpg" %}
@@ -155,14 +161,15 @@ description: "This library generates chemical reaction fingerprints from reactio
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Citation">Citation<a class="anchor-link" href="#Citation"> </a></h2>
+<h2 id="Citation">Citation<a class="anchor-link" href="#Citation"> </a></h2><p>Our work was first presented in the NeurIPS 2019 workshop for <a href="https://ml4physicalsciences.github.io">Machine Learning and the Physical Sciences</a>, the most recent version can be found on [ChemRxiv](<a href="https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365">https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365</a></p>
+
 <pre><code>@article{Schwaller2019rxnfp,
-author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and Teodoro Laino and Jean-Louis Reymond",
-title = "{Data-Driven Chemical Reaction Classification, Fingerprinting and Clustering using Attention-Based Neural Networks}",
+author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and David Kreutter and Teodoro Laino and Jean-Louis Reymond",
+title = "{Mapping the Space of Chemical Reactions using Attention-Based Neural Networks}",
 year = "2019",
-month = "12",
+month = "9",
 url = "https://chemrxiv.org/articles/preprint/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365",
-doi = "10.26434/chemrxiv.9897365.v2"
+doi = "10.26434/chemrxiv.9897365.v3"
 }</code></pre>
 <p>RXNFP has been developed in a collaboration between IBM Research Europe and the <a href="http://gdb.unibe.ch">Reymond group</a> at the University of Bern. The classification models are used on the <a href="https://rxn.res.ibm.com">RXN for Chemistry</a> platform.</p>
 

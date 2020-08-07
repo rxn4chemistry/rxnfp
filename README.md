@@ -7,6 +7,17 @@
 
 For all installations, we recommend using `conda` to get the necessary `rdkit` and `tmap` dependencies:
 
+### From pypi
+
+```console
+conda create -n rxnfp python=3.6 -y
+conda activate rxnfp
+conda install -c rdkit rdkit
+conda install -c tmap tmap
+pip install rxnfp
+```
+
+
 ### From github
 ```console
 conda create -n rxnfp python=3.6 -y
@@ -22,7 +33,7 @@ Compute a fingerprint from a reaction SMILES
 ```python
 ```
 
-```python
+```
 from rxnfp.transformer_fingerprints import (
     RXNBERTFingerprintGenerator, get_default_model_and_tokenizer, generate_fingerprints
 )
@@ -44,7 +55,7 @@ print(fp[:5])
 
 Or for a list of reactions:
 
-```python
+```
 rxns = [example_rxn, example_rxn]
 fps = rxnfp_generator.convert_batch(rxns)
 print(len(fps), len(fps[0]))
@@ -68,7 +79,7 @@ The fingerprints can be used to map the space of chemical reactions:
 
 ### Schneider 50k set
 
-In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this **[interactive Reaction Atlas](./tmaps/tmap_ft_10k.html)**.
+In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this **[interactive Reaction Atlas](https://rxn4chemistry.github.io/rxnfp//tmaps/tmap_ft_10k.html)**.
 
 Where you will find different reaction properties highlighted in the different layers:
 
@@ -79,14 +90,16 @@ Where you will find different reaction properties highlighted in the different l
 
 ## Citation 
 
+Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning and the Physical Sciences](https://ml4physicalsciences.github.io), the most recent version can be found on [ChemRxiv](https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365
+
 ```
 @article{Schwaller2019rxnfp,
-author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and Teodoro Laino and Jean-Louis Reymond",
-title = "{Data-Driven Chemical Reaction Classification, Fingerprinting and Clustering using Attention-Based Neural Networks}",
+author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and David Kreutter and Teodoro Laino and Jean-Louis Reymond",
+title = "{Mapping the Space of Chemical Reactions using Attention-Based Neural Networks}",
 year = "2019",
-month = "12",
+month = "9",
 url = "https://chemrxiv.org/articles/preprint/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365",
-doi = "10.26434/chemrxiv.9897365.v2"
+doi = "10.26434/chemrxiv.9897365.v3"
 }
 ```
 
