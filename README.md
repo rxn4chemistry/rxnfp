@@ -24,6 +24,8 @@ conda create -n rxnfp python=3.6 -y
 conda activate rxnfp
 conda install -c rdkit rdkit
 conda install -c tmap tmap
+git clone git@github.com:rxn4chemistry/rxnfp.git
+cd rxnfp
 pip install -e .
 ```
 
@@ -70,14 +72,13 @@ print(len(fps), len(fps[0]))
 The fingerprints can be used to map the space of chemical reactions:
 
 
-
 <div style="text-align: center">
 <img src="nbs/images/annotated_atlas.jpg" width="1000">
-<p style="text-align: center;"> <b>Figure:</b> Annotated Atlas of the Pistachio test set generated with TMAP (https://tmap.gdb.tools). </p>
+<p style="text-align: center;"> <b>Figure:</b> Annotated Atlas of the Pistachio test set generated with <a href="https://tmap.gdb.tools">TMAP</a>. </p>
 </div>
 
 
-### Schneider 50k set
+### Schneider 50k set - tutorial
 
 In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this **[interactive Reaction Atlas](https://rxn4chemistry.github.io/rxnfp//tmaps/tmap_ft_10k.html)**.
 
@@ -90,7 +91,7 @@ Where you will find different reaction properties highlighted in the different l
 
 ## Citation 
 
-Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning and the Physical Sciences](https://ml4physicalsciences.github.io), the most recent version can be found on [ChemRxiv](https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365
+Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning and the Physical Sciences](https://ml4physicalsciences.github.io). The most recent version of our preprint can be found on [ChemRxiv](https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365).
 
 ```
 @article{Schwaller2019rxnfp,

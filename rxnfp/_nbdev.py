@@ -25,8 +25,8 @@ modules = ["core.py",
            "tokenization.py",
            "transformer_fingerprints.py"]
 
-doc_url = "https://pschwllr # change that to rxn4chemistry.github.io/rxnfp/"
+doc_url = "https://rxn4chemistry.github.io/rxnfp/"
 
-git_url = "https://github.com/pschwllr # change that to rxn4chemistry/rxnfp/tree/master/"
+git_url = "https://github.com/rxn4chemistry/rxnfp/tree/master/"
 
 def custom_doc_links(name): return None
