@@ -15,7 +15,7 @@ jobs:
     - run: which python
     - name: Install the library
       run: |
-        conda install -c rdkit rdkit -y
+        conda install -c rdkit rdkit=2020.03.3.0 -y
         conda install -c tmap tmap -y
         pip install nbdev jupyter
         pip install -e .
