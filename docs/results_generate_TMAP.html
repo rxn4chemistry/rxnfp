@@ -2,11 +2,13 @@
 
 title: Results - Generate TMAP
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Cluster 50k reaction data set by Schneider et al. using TMAP"
 description: "Cluster 50k reaction data set by Schneider et al. using TMAP"
+nb_path: "nbs/05_results_generate_TMAP.ipynb"
 ---
 <!--
 
@@ -58,8 +60,7 @@ description: "Cluster 50k reaction data set by Schneider et al. using TMAP"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># slow</span>
-<span class="n">mhfps</span> <span class="o">=</span> <span class="p">[</span><span class="n">mh_encoder</span><span class="o">.</span><span class="n">from_weight_array</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;I2CWS&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ft_10k_fps</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mhfps</span> <span class="o">=</span> <span class="p">[</span><span class="n">mh_encoder</span><span class="o">.</span><span class="n">from_weight_array</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;I2CWS&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ft_10k_fps</span><span class="p">)]</span>
 </pre></div>
 
     </div>
@@ -96,9 +97,7 @@ description: "Cluster 50k reaction data set by Schneider et al. using TMAP"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># slow</span>
-
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># superclasses</span>
 <span class="n">superclasses</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -194,8 +193,7 @@ description: "Cluster 50k reaction data set by Schneider et al. using TMAP"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># slow</span>
-<span class="n">lf</span><span class="o">.</span><span class="n">batch_add</span><span class="p">(</span><span class="n">mhfps</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lf</span><span class="o">.</span><span class="n">batch_add</span><span class="p">(</span><span class="n">mhfps</span><span class="p">)</span>
 <span class="n">lf</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
 
 <span class="c1"># Layout</span>
@@ -246,8 +244,7 @@ description: "Cluster 50k reaction data set by Schneider et al. using TMAP"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># slow</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">Faerun</span><span class="p">(</span><span class="n">clear_color</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;front&quot;</span><span class="p">,)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Faerun</span><span class="p">(</span><span class="n">clear_color</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;front&quot;</span><span class="p">,)</span>
     
 <span class="n">f</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
 <span class="s2">&quot;ReactionAtlas&quot;</span><span class="p">,</span>

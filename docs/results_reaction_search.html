@@ -2,11 +2,13 @@
 
 title: Results - Reaction search example
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "An example of a reaction search in the Schneider 50k data set"
 description: "An example of a reaction search in the Schneider 50k data set"
+nb_path: "nbs/06_results_reaction_search.ipynb"
 ---
 <!--
 
@@ -40,8 +42,7 @@ description: "An example of a reaction search in the Schneider 50k data set"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># data</span>
-<span class="n">lf</span> <span class="o">=</span> <span class="n">tm</span><span class="o">.</span><span class="n">LSHForest</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lf</span> <span class="o">=</span> <span class="n">tm</span><span class="o">.</span><span class="n">LSHForest</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">mh_encoder</span> <span class="o">=</span> <span class="n">tm</span><span class="o">.</span><span class="n">Minhash</span><span class="p">()</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/rxnclass2name.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -86,8 +87,7 @@ description: "An example of a reaction search in the Schneider 50k data set"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># data</span>
-<span class="n">train_df</span> <span class="o">=</span> <span class="n">schneider_df</span><span class="p">[</span><span class="n">schneider_df</span><span class="o">.</span><span class="n">split</span><span class="o">==</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_df</span> <span class="o">=</span> <span class="n">schneider_df</span><span class="p">[</span><span class="n">schneider_df</span><span class="o">.</span><span class="n">split</span><span class="o">==</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
 <span class="n">train_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">lf</span><span class="o">.</span><span class="n">batch_add</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">mhfp</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="n">lf</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
@@ -113,8 +113,7 @@ description: "An example of a reaction search in the Schneider 50k data set"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># data</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">schneider_df</span><span class="p">[</span><span class="n">schneider_df</span><span class="o">.</span><span class="n">split</span><span class="o">==</span><span class="s1">&#39;test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">schneider_df</span><span class="p">[</span><span class="n">schneider_df</span><span class="o">.</span><span class="n">split</span><span class="o">==</span><span class="s1">&#39;test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------------------------------------------------------------------------------&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Query: Reaction class - </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rxn_class&#39;</span><span class="p">],</span> <span class="n">rxnclass2name</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rxn_class&#39;</span><span class="p">]]))</span>
     <span class="n">display</span><span class="p">(</span><span class="n">AllChem</span><span class="o">.</span><span class="n">ReactionFromSmarts</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rxn&#39;</span><span class="p">],</span> <span class="n">useSmiles</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>

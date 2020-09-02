@@ -1,4 +1,4 @@
-repository: pschwllr # change that to rxn4chemistry/rxnfp
+repository: rxn4chemistry/rxnfp
 output: web
 topnav_title: rxnfp
 site_title: rxnfp
