@@ -16,6 +16,9 @@ entries:
       title: Transformer fingerprints
       url: /transformer_fingerprints
     - output: web,pdf
+      title: SmilesTransformer models
+      url: /models
+    - output: web,pdf
       title: Fingerprint generation
       url: /generate_fingerprints
     - output: web,pdf

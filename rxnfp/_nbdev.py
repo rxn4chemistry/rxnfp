@@ -19,11 +19,15 @@ index = {"RXNFingerprintContainer": "00_core.ipynb",
          "RXNBERTFingerprintGenerator": "02_transformer_fingerprints.ipynb",
          "RXNBERTMinhashFingerprintGenerator": "02_transformer_fingerprints.ipynb",
          "get_default_model_and_tokenizer": "02_transformer_fingerprints.ipynb",
-         "generate_fingerprints": "02_transformer_fingerprints.ipynb"}
+         "generate_fingerprints": "02_transformer_fingerprints.ipynb",
+         "logger": "07_models.ipynb",
+         "SmilesLanguageModelingModel": "07_models.ipynb",
+         "SmilesClassificationModel": "07_models.ipynb"}
 
 modules = ["core.py",
            "tokenization.py",
-           "transformer_fingerprints.py"]
+           "transformer_fingerprints.py",
+           "models.py"]
 
 doc_url = "https://rxn4chemistry.github.io/rxnfp/"
 
