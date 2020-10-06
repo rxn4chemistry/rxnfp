@@ -3,6 +3,7 @@
     "Overview": "/",
     "Tokenization": "/tokenization",
     "Transformer fingerprints": "/transformer_fingerprints",
+    "SmilesTransformer models": "/models",
     "Fingerprint generation": "/generate_fingerprints",
     "Results - Classification": "/results_classification_50k",
     "Results - Generate TMAP": "/results_generate_TMAP",
