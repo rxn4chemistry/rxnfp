@@ -40,14 +40,14 @@ nb_path: "nbs/index.ipynb"
 <p>For all installations, we recommend using <code>conda</code> to get the necessary <code>rdkit</code> and <code>tmap</code> dependencies:</p>
 <h3 id="From-pypi">From pypi<a class="anchor-link" href="#From-pypi"> </a></h3><div class="highlight"><pre><span></span><span class="go">conda create -n rxnfp python=3.6 -y</span>
 <span class="go">conda activate rxnfp</span>
-<span class="go">conda install -c rdkit rdkit</span>
-<span class="go">conda install -c tmap tmap</span>
+<span class="go">conda install -c rdkit rdkit=2020.03.3 -y</span>
+<span class="go">conda install -c tmap tmap -y</span>
 <span class="go">pip install rxnfp</span>
 </pre></div>
 <h3 id="From-github">From github<a class="anchor-link" href="#From-github"> </a></h3><div class="highlight"><pre><span></span><span class="go">conda create -n rxnfp python=3.6 -y</span>
 <span class="go">conda activate rxnfp</span>
-<span class="go">conda install -c rdkit rdkit</span>
-<span class="go">conda install -c tmap tmap</span>
+<span class="go">conda install -c rdkit rdkit=2020.03.3 -y</span>
+<span class="go">conda install -c tmap tmap -y</span>
 <span class="go">git clone git@github.com:rxn4chemistry/rxnfp.git</span>
 <span class="go">cd rxnfp</span>
 <span class="go">pip install -e .</span>
@@ -97,7 +97,7 @@ nb_path: "nbs/index.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>256
-[-2.01749587059021, 1.7602041959762573, -1.332353949546814, -1.1095027923583984, 1.2254546880722046]
+[-2.0174953937530518, 1.7602033615112305, -1.3323537111282349, -1.1095019578933716, 1.2254549264907837]
 </pre>
 </div>
 </div>
@@ -159,7 +159,9 @@ nb_path: "nbs/index.ipynb"
 <div style="text-align: center">
 {% include image.html max-width="800" file="/rxnfp/images/tmap_properties.jpg" %}
 <p style="text-align: center;"> <b>Figure:</b> Reaction atlas of 50k data set with different properties highlighted. </p>
-</div>
+</div><h2 id="USPTO-1k-TPL-(reaction-classification-data-set)">USPTO 1k TPL (reaction classification data set)<a class="anchor-link" href="#USPTO-1k-TPL-(reaction-classification-data-set)"> </a></h2><p>We introduce a new data set for chemical reaction classification called USPTO 1k TPL. USPTO 1k TPL is derived from the <a href="https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873">USPTO data base</a> by Lowe. It consists of 445k reactions divided into 1000 template labels. The data set was randomly split into train/valid 90% and test 10%. The labels were obtained by atom-mapping the USPTO data set with <a href="http://rxnmapper.ai">RXNMapper</a>, then applying the <a href="https://github.com/reymond-group/CASP-and-dataset-performance">template extraction workflow</a> by Thakkar et al. and finally, selecting reactions belonging to the 1000 most frequent template hashes. Those template hashes were taken as class labels. Similarly to the Pistachio data set, USPTO 1k TPL is strongly imbalanced.</p>
+<p>The data set can be downloaded from: <a href="https://ibm.box.com/v/MappingChemicalReactions">MappingChemicalReactions</a>.</p>
+
 </div>
 </div>
 </div>
