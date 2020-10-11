@@ -12,8 +12,8 @@ For all installations, we recommend using `conda` to get the necessary `rdkit` a
 ```console
 conda create -n rxnfp python=3.6 -y
 conda activate rxnfp
-conda install -c rdkit rdkit
-conda install -c tmap tmap
+conda install -c rdkit rdkit=2020.03.3 -y
+conda install -c tmap tmap -y
 pip install rxnfp
 ```
 
@@ -22,8 +22,8 @@ pip install rxnfp
 ```console
 conda create -n rxnfp python=3.6 -y
 conda activate rxnfp
-conda install -c rdkit rdkit
-conda install -c tmap tmap
+conda install -c rdkit rdkit=2020.03.3 -y
+conda install -c tmap tmap -y
 git clone git@github.com:rxn4chemistry/rxnfp.git
 cd rxnfp
 pip install -e .
@@ -35,7 +35,7 @@ Compute a fingerprint from a reaction SMILES
 ```python
 ```
 
-```
+```python
 from rxnfp.transformer_fingerprints import (
     RXNBERTFingerprintGenerator, get_default_model_and_tokenizer, generate_fingerprints
 )
@@ -57,7 +57,7 @@ print(fp[:5])
 
 Or for a list of reactions:
 
-```
+```python
 rxns = [example_rxn, example_rxn]
 fps = rxnfp_generator.convert_batch(rxns)
 print(len(fps), len(fps[0]))
@@ -88,6 +88,12 @@ Where you will find different reaction properties highlighted in the different l
 <img src="nbs/images/tmap_properties.jpg" width="800">
 <p style="text-align: center;"> <b>Figure:</b> Reaction atlas of 50k data set with different properties highlighted. </p>
 </div>
+
+## USPTO 1k TPL (reaction classification data set)
+
+We introduce a new data set for chemical reaction classification called USPTO 1k TPL. USPTO 1k TPL is derived from the [USPTO data base](https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873) by Lowe. It consists of 445k reactions divided into 1000 template labels. The data set was randomly split into train/valid 90% and test 10%. The labels were obtained by atom-mapping the USPTO data set with [RXNMapper](http://rxnmapper.ai), then applying the [template extraction workflow](https://github.com/reymond-group/CASP-and-dataset-performance) by Thakkar et al. and finally, selecting reactions belonging to the 1000 most frequent template hashes. Those template hashes were taken as class labels. Similarly to the Pistachio data set, USPTO 1k TPL is strongly imbalanced.
+
+The data set can be downloaded from: [MappingChemicalReactions](https://ibm.box.com/v/MappingChemicalReactions).
 
 ## Citation 
 

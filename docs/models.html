@@ -2,11 +2,13 @@
 
 title: Adapters for SmilesTransformer models
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Adapting SmilesTransformer models to use a SmilesTokenizer"
 description: "Adapting SmilesTransformer models to use a SmilesTokenizer"
+nb_path: "nbs/07_models.ipynb"
 ---
 <!--
 
@@ -73,13 +75,6 @@ This extension has only been tested with simpletransformers==0.34.4
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -103,12 +98,18 @@ This extension has only been tested with simpletransformers==0.34.4
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># optional</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">SmilesLanguageModelingModel</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;bert&#39;</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vocab_path&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/uspto_1000/vocab.txt&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SmilesLanguageModelingModel</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;bert&#39;</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vocab_path&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/uspto_1000/vocab.txt&#39;</span><span class="p">})</span>
 </pre></div>
 
     </div>
@@ -143,13 +144,6 @@ Setting &#39;max_len_sentences_pair&#39; is now deprecated. This value is automa
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -166,6 +160,13 @@ Setting &#39;max_len_sentences_pair&#39; is now deprecated. This value is automa
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
