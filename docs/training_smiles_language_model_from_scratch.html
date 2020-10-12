@@ -71,7 +71,7 @@ This extension has only been tested with simpletransformers==0.34.4
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Track-the-training">Track the training<a class="anchor-link" href="#Track-the-training"> </a></h2><p>Will be using wandb to keep track of our training. You can use the an account on <a href="https://www.wandb.com">wandb</a> or create an own instance following the instruction in the <a href="https://docs.wandb.com/self-hosted">documentation</a>.</p>
+<h2 id="Track-the-training">Track the training<a class="anchor-link" href="#Track-the-training"> </a></h2><p>We will be using wandb to keep track of our training. You can use the an account on <a href="https://www.wandb.com">wandb</a> or create an own instance following the instruction in the <a href="https://docs.wandb.com/self-hosted">documentation</a>.</p>
 <p>If you then create an <code>.env</code> file in the root folder and specify the <code>WANDB_API_KEY=</code> (and the <code>WANDB_BASE_URL=</code>), you can use dotenv to load those enviroment variables.</p>
 
 </div>
@@ -113,8 +113,8 @@ This extension has only been tested with simpletransformers==0.34.4
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Setup-MLM-training">Setup MLM training<a class="anchor-link" href="#Setup-MLM-training"> </a></h2><p>Choose the hyperparameter you want and start the training. The default parameters will train a BERT model with 12 layers and 4 attention heads per layer. The training task is Masked Language Modeling (MLM), where tokens from the input reactions are randomly masked and predicted by the model given the context.</p>
-<p>After defining the config, the training is launched in 3 lines of code using our adapter written for the  <a href="https://simpletransformers.ai">SimpleTransformers</a> library (based on huggingface <a href="https://github.com/huggingface/transformers">Transformers</a>.</p>
+<h2 id="Setup-MLM-training">Setup MLM training<a class="anchor-link" href="#Setup-MLM-training"> </a></h2><p>Choose the hyperparameters you want and start the training. The default parameters will train a BERT model with 12 layers and 4 attention heads per layer. The training task is Masked Language Modeling (MLM), where tokens from the input reactions are randomly masked and predicted by the model given the context.</p>
+<p>After defining the config, the training is launched in 3 lines of code using our adapter written for the  <a href="https://simpletransformers.ai">SimpleTransformers</a> library (based on huggingface <a href="https://github.com/huggingface/transformers">Transformers</a>).</p>
 <p>To make it work you will have to install simpletransformers:</p>
 <div class="highlight"><pre><span></span>pip install <span class="nv">simpletransformers</span><span class="o">==</span><span class="m">0</span>.34.4
 </pre></div>
