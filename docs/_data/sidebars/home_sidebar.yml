@@ -16,14 +16,23 @@ entries:
       title: Transformer fingerprints
       url: /transformer_fingerprints
     - output: web,pdf
-      title: SmilesTransformer models
-      url: /models
-    - output: web,pdf
       title: Fingerprint generation
       url: /generate_fingerprints
     - output: web,pdf
-      title: Results - Classification
+      title: Training - Reaction language model (MLM)
+      url: /training_smiles_language_model_from_scratch
+    - output: web,pdf
+      title: Training - Fine tuning on USPTO 1k TPL
+      url: /fine_tune_bert_on_uspto_1k_tpl
+    - output: web,pdf
+      title: Results - Classification 50k
       url: /results_classification_50k
+    - output: web,pdf
+      title: Results - Classification USPTO 1k TPL
+      url: /results_uspto_1k_tpl
+    - output: web,pdf
+      title: Results - 1k TPL label visualisations
+      url: label_template_visualisation
     - output: web,pdf
       title: Results - Generate TMAP
       url: /results_generate_TMAP
