@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 try:
     import simpletransformers
-    logger.warning("This extension has only been tested with simpletransformers==0.34.4")
+    logger.warning("This extension has only been tested with simpletransformers==0.34.4 and transformers==2.11.0")
 except ImportError:
     raise ImportError('To use this extension, please install simpletransformers (tested with . "pip install simpletransformers==0.34.4"')
 
