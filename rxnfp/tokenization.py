@@ -57,8 +57,8 @@ class SmilesTokenizer(BertTokenizer):
         """
         super().__init__(vocab_file, **kwargs)
         # take into account special tokens in max length
-        self.max_len_single_sentence = self.max_len - 2
-        self.max_len_sentences_pair = self.max_len - 3
+        # self.max_len_single_sentence = self.max_len - 2
+        # self.max_len_sentences_pair = self.max_len - 3
 
         if not os.path.isfile(vocab_file):
             raise ValueError(
@@ -75,7 +75,7 @@ class SmilesTokenizer(BertTokenizer):
             [(ids, tok) for tok, ids in self.vocab.items()]
         )
         self.basic_tokenizer = BasicSmilesTokenizer()
-        self.init_kwargs["max_len"] = self.max_len
+#         self.init_kwargs["max_len"] = self.max_len
 
     @property
     def vocab_size(self):
@@ -182,13 +182,14 @@ InputFeaturesBatch = collections.namedtuple(
 )
 
 
-def convert_reaction_to_valid_features(reaction: str, tokenizer: SmilesTokenizer):
+def convert_reaction_to_valid_features(reaction: str, tokenizer: SmilesTokenizer, max_seq_length:int=512):
     r"""
     Convert reaction SMILES into input features.
     """
-    max_seq_length = tokenizer.max_len
+
+    max_len_single_sentence = max_seq_length - 2
     tokens = tokenizer.add_special_tokens_single_sequence(
-        tokenizer.tokenize(reaction)[:tokenizer.max_len_single_sentence]
+        tokenizer.tokenize(reaction)[:max_len_single_sentence]
     )  # add [CLS] and [SEP] token
     input_ids = tokenizer.convert_tokens_to_ids(tokens)
 
