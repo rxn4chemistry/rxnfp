@@ -152,12 +152,12 @@ nb_path: "nbs/index.ipynb"
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reaction-Atlas">Reaction Atlas<a class="anchor-link" href="#Reaction-Atlas"> </a></h2><h3 id="Pistachio">Pistachio<a class="anchor-link" href="#Pistachio"> </a></h3><p>The fingerprints can be used to map the space of chemical reactions:</p>
 <div style="text-align: center">
-{% include image.html max-width="1000" file="/rxnfp/images/annotated_atlas.jpg" %}
+{% include image.html width="1000" max-width="1000" file="/rxnfp/images/annotated_atlas.jpg" %}
 <p style="text-align: center;"> <b>Figure:</b> Annotated Atlas of the Pistachio test set generated with <a href="https://tmap.gdb.tools">TMAP</a>. </p>
 </div><h3 id="Schneider-50k-set---tutorial">Schneider 50k set - tutorial<a class="anchor-link" href="#Schneider-50k-set---tutorial"> </a></h3><p>In the notebooks, we show how to generate an interative reaction atlas for the Schneider 50k set. The end result is similar to this <strong><a href="https://rxn4chemistry.github.io/rxnfp//tmaps/tmap_ft_10k.html">interactive Reaction Atlas</a></strong>.</p>
 <p>Where you will find different reaction properties highlighted in the different layers:</p>
 <div style="text-align: center">
-{% include image.html max-width="800" file="/rxnfp/images/tmap_properties.jpg" %}
+{% include image.html width="800" max-width="800" file="/rxnfp/images/tmap_properties.jpg" %}
 <p style="text-align: center;"> <b>Figure:</b> Reaction atlas of 50k data set with different properties highlighted. </p>
 </div><h2 id="USPTO-1k-TPL-(reaction-classification-data-set)">USPTO 1k TPL (reaction classification data set)<a class="anchor-link" href="#USPTO-1k-TPL-(reaction-classification-data-set)"> </a></h2><p>We introduce a new data set for chemical reaction classification called USPTO 1k TPL. USPTO 1k TPL is derived from the <a href="https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873">USPTO data base</a> by Lowe. It consists of 445k reactions divided into 1000 template labels. The data set was randomly split into train/valid 90% and test 10%. The labels were obtained by atom-mapping the USPTO data set with <a href="http://rxnmapper.ai">RXNMapper</a>, then applying the <a href="https://github.com/reymond-group/CASP-and-dataset-performance">template extraction workflow</a> by Thakkar et al. and finally, selecting reactions belonging to the 1000 most frequent template hashes. Those template hashes were taken as class labels. Similarly to the Pistachio data set, USPTO 1k TPL is strongly imbalanced.</p>
 <p>The data set can be downloaded from: <a href="https://ibm.box.com/v/MappingChemicalReactions">MappingChemicalReactions</a>.</p>
@@ -167,15 +167,17 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Citation">Citation<a class="anchor-link" href="#Citation"> </a></h2><p>Our work was first presented in the NeurIPS 2019 workshop for <a href="https://ml4physicalsciences.github.io">Machine Learning and the Physical Sciences</a>. The most recent version of our preprint can be found on <a href="https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365">ChemRxiv</a>.</p>
+<h2 id="Citation">Citation<a class="anchor-link" href="#Citation"> </a></h2><p>Our work was first presented in the NeurIPS 2019 workshop for <a href="https://ml4physicalsciences.github.io">Machine Learning and the Physical Sciences</a>. And has been published after multiple updates in 2021 in <a href="http://rdcu.be/cenmd">Nature Machine Intelligence (free access link)</a>.</p>
 
-<pre><code>@article{Schwaller2019rxnfp,
-author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and David Kreutter and Teodoro Laino and Jean-Louis Reymond",
-title = "{Mapping the Space of Chemical Reactions using Attention-Based Neural Networks}",
-year = "2019",
-month = "9",
-url = "https://chemrxiv.org/articles/preprint/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365",
-doi = "10.26434/chemrxiv.9897365.v3"
+<pre><code>@article{schwaller2021mapping,
+  title={Mapping the space of chemical reactions using attention-based neural networks},
+  author={Schwaller, Philippe and Probst, Daniel and Vaucher, Alain C and Nair, Vishnu H and Kreutter, David and Laino, Teodoro and Reymond, Jean-Louis},
+  journal={Nature Machine Intelligence},
+  volume={3},
+  number={2},
+  pages={144--152},
+  year={2021},
+  publisher={Nature Publishing Group}
 }</code></pre>
 <p>RXNFP has been developed in a collaboration between IBM Research Europe and the <a href="http://gdb.unibe.ch">Reymond group</a> at the University of Bern. The classification models are used on the <a href="https://rxn.res.ibm.com">RXN for Chemistry</a> platform.</p>
 

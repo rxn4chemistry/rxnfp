@@ -73,7 +73,7 @@ The fingerprints can be used to map the space of chemical reactions:
 
 
 <div style="text-align: center">
-<img src="nbs/images/annotated_atlas.jpg" width="1000">
+<img src="nbs/images/annotated_atlas.jpg" width="1000" style="max-width: 1000px">
 <p style="text-align: center;"> <b>Figure:</b> Annotated Atlas of the Pistachio test set generated with <a href="https://tmap.gdb.tools">TMAP</a>. </p>
 </div>
 
@@ -85,7 +85,7 @@ In the notebooks, we show how to generate an interative reaction atlas for the S
 Where you will find different reaction properties highlighted in the different layers:
 
 <div style="text-align: center">
-<img src="nbs/images/tmap_properties.jpg" width="800">
+<img src="nbs/images/tmap_properties.jpg" width="800" style="max-width: 800px">
 <p style="text-align: center;"> <b>Figure:</b> Reaction atlas of 50k data set with different properties highlighted. </p>
 </div>
 
@@ -97,16 +97,18 @@ The data set can be downloaded from: [MappingChemicalReactions](https://ibm.box.
 
 ## Citation 
 
-Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning and the Physical Sciences](https://ml4physicalsciences.github.io). The most recent version of our preprint can be found on [ChemRxiv](https://chemrxiv.org/articles/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365).
+Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning and the Physical Sciences](https://ml4physicalsciences.github.io). And has been published after multiple updates in 2021 in [Nature Machine Intelligence (free access link)](http://rdcu.be/cenmd).
 
 ```
-@article{Schwaller2019rxnfp,
-author = "Philippe Schwaller and Daniel Probst and Alain C. Vaucher and Vishnu H Nair and David Kreutter and Teodoro Laino and Jean-Louis Reymond",
-title = "{Mapping the Space of Chemical Reactions using Attention-Based Neural Networks}",
-year = "2019",
-month = "9",
-url = "https://chemrxiv.org/articles/preprint/Data-Driven_Chemical_Reaction_Classification_with_Attention-Based_Neural_Networks/9897365",
-doi = "10.26434/chemrxiv.9897365.v3"
+@article{schwaller2021mapping,
+  title={Mapping the space of chemical reactions using attention-based neural networks},
+  author={Schwaller, Philippe and Probst, Daniel and Vaucher, Alain C and Nair, Vishnu H and Kreutter, David and Laino, Teodoro and Reymond, Jean-Louis},
+  journal={Nature Machine Intelligence},
+  volume={3},
+  number={2},
+  pages={144--152},
+  year={2021},
+  publisher={Nature Publishing Group}
 }
 ```
 
