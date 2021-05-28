@@ -6,6 +6,6 @@ gem 'github-pages', group: :jekyll_plugins
 # Added at 2019-11-25 10:11:40 -0800 by jhoward:
 gem "jekyll", "~> 3.7"
 gem "kramdown", ">= 2.3.1"
-gem "nokogiri", ">= 1.11.0"
+gem "nokogiri", ">= 1.11.4"
 gem "rexml", ">= 3.2.5"
 gem "jekyll-remote-theme"
