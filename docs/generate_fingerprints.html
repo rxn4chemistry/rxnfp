@@ -168,34 +168,6 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Initialize-fingerprint-generator-and-convert-reactions">Initialize fingerprint generator and convert reactions<a class="anchor-link" href="#Initialize-fingerprint-generator-and-convert-reactions"> </a></h3>
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_ft_10k_25s&#39;</span><span class="p">)</span>
-<span class="n">ft_10k_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
-<span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_ft&#39;</span><span class="p">)</span>
-<span class="n">ft_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
-<span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_pretrained&#39;</span><span class="p">)</span>
-<span class="n">pretrained_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="ft_10k-model">ft_10k model<a class="anchor-link" href="#ft_10k-model"> </a></h3><p>This model was fine tuned on 10k reactions from the Schneider data set.</p>
 <p>Generate and save the fingerprints.</p>
 
@@ -209,7 +181,10 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fps_ft_10k</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ft_10k_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_ft_10k_25s&#39;</span><span class="p">)</span>
+<span class="n">ft_10k_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+
+<span class="n">fps_ft_10k</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ft_10k_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="s1">&#39;../data/fps_ft_10k&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps_ft_10k</span><span class="p">)</span>
 <span class="n">fps_ft_10k</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -224,7 +199,7 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 6250/6250 [02:50&lt;00:00, 36.70it/s]
+<pre>100%|██████████| 6250/6250 [02:52&lt;00:00, 36.31it/s]
 </pre>
 </div>
 </div>
@@ -283,7 +258,9 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fps_pretrained</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">pretrained_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_pretrained&#39;</span><span class="p">)</span>
+<span class="n">pretrained_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+<span class="n">fps_pretrained</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">pretrained_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="s1">&#39;../data/fps_pretrained&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps_pretrained</span><span class="p">)</span>
 <span class="n">fps_pretrained</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -332,7 +309,9 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fps_ft</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ft_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_default_model_and_tokenizer</span><span class="p">(</span><span class="s1">&#39;bert_ft&#39;</span><span class="p">)</span>
+<span class="n">ft_rxnfp_generator</span> <span class="o">=</span> <span class="n">RXNBERTFingerprintGenerator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+<span class="n">fps_ft</span> <span class="o">=</span> <span class="n">generate_fingerprints</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rxn</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ft_rxnfp_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="s1">&#39;../data/fps_ft&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps_ft</span><span class="p">)</span>
 <span class="n">fps_ft</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -347,7 +326,7 @@ nb_path: "nbs/03_generate_fingerprints.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 6250/6250 [02:54&lt;00:00, 35.82it/s]
+<pre>100%|██████████| 6250/6250 [00:56&lt;00:00, 111.34it/s]
 </pre>
 </div>
 </div>

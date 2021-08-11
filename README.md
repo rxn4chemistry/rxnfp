@@ -4,7 +4,6 @@
 
 ## Install
 
-
 For all installations, we recommend using `conda` to get the necessary `rdkit` and `tmap` dependencies:
 
 ### From pypi
@@ -35,7 +34,7 @@ Compute a fingerprint from a reaction SMILES
 ```python
 ```
 
-```
+```python
 from rxnfp.transformer_fingerprints import (
     RXNBERTFingerprintGenerator, get_default_model_and_tokenizer, generate_fingerprints
 )
@@ -57,7 +56,7 @@ print(fp[:5])
 
 Or for a list of reactions:
 
-```
+```python
 rxns = [example_rxn, example_rxn]
 fps = rxnfp_generator.convert_batch(rxns)
 print(len(fps), len(fps[0]))

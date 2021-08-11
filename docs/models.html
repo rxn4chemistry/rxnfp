@@ -26,40 +26,12 @@ nb_path: "nbs/07_models.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>This extension has only been tested with simpletransformers==0.34.4 and transformers==2.11.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>This extension has only been tested with simpletransformers==0.34.4 and transformers==2.11.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
 
 </div>
     {% endraw %}
@@ -108,25 +80,17 @@ nb_path: "nbs/07_models.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SmilesLanguageModelingModel</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;bert&#39;</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vocab_path&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/uspto_1000/vocab.txt&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">default_vocab_path</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span>
+                    <span class="s2">&quot;rxnfp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;models/transformers/bert_ft/vocab.txt&quot;</span>
+                <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SmilesLanguageModelingModel</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;bert&#39;</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vocab_path&#39;</span><span class="p">:</span> <span class="n">default_vocab_path</span><span class="p">})</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Setting &#39;max_len_single_sentence&#39; is now deprecated. This value is automatically set up.
-Setting &#39;max_len_sentences_pair&#39; is now deprecated. This value is automatically set up.
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -150,7 +114,7 @@ Setting &#39;max_len_sentences_pair&#39; is now deprecated. This value is automa
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SmilesClassificationModel" class="doc_header"><code>class</code> <code>SmilesClassificationModel</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/models.py#L193" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SmilesClassificationModel</code>(<strong><code>model_type</code></strong>, <strong><code>model_name</code></strong>, <strong><code>num_labels</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>None</code></em>, <strong><code>freeze_encoder</code></strong>=<em><code>False</code></em>, <strong><code>freeze_all_but_one</code></strong>=<em><code>False</code></em>, <strong><code>args</code></strong>=<em><code>None</code></em>, <strong><code>use_cuda</code></strong>=<em><code>True</code></em>, <strong><code>cuda_device</code></strong>=<em><code>-1</code></em>, <strong>**<code>kwargs</code></strong>) :: <code>ClassificationModel</code></p>
+<h2 id="SmilesClassificationModel" class="doc_header"><code>class</code> <code>SmilesClassificationModel</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/models.py#L297" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SmilesClassificationModel</code>(<strong><code>model_type</code></strong>, <strong><code>model_name</code></strong>, <strong><code>tokenizer_type</code></strong>=<em><code>None</code></em>, <strong><code>tokenizer_name</code></strong>=<em><code>None</code></em>, <strong><code>num_labels</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>None</code></em>, <strong><code>args</code></strong>=<em><code>None</code></em>, <strong><code>use_cuda</code></strong>=<em><code>True</code></em>, <strong><code>cuda_device</code></strong>=<em><code>-1</code></em>, <strong><code>onnx_execution_provider</code></strong>=<em><code>None</code></em>, <strong><code>freeze_encoder</code></strong>=<em><code>False</code></em>, <strong><code>freeze_all_but_one</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>) :: <code>ClassificationModel</code></p>
 </blockquote>
 
 </div>
@@ -166,6 +130,57 @@ Setting &#39;max_len_sentences_pair&#39; is now deprecated. This value is automa
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">default_model_path</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span>
+                    <span class="s2">&quot;rxnfp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;models/transformers/bert_pretrained&quot;</span>
+                <span class="p">)</span>
+    <span class="p">)</span>
+<span class="n">model_args</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="s1">&#39;num_train_epochs&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;overwrite_output_dir&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="s1">&#39;gradient_accumulation_steps&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;regression&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;num_labels&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;fp16&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;evaluate_during_training&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;manual_seed&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s2">&quot;max_seq_length&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;train_batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span><span class="s2">&quot;warmup_ratio&quot;</span><span class="p">:</span> <span class="mf">0.00</span><span class="p">,</span>
+    <span class="s2">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;hidden_dropout_prob&#39;</span><span class="p">:</span> <span class="mf">0.05</span> <span class="p">},</span>
+    <span class="c1"># &#39;wandb_project&#39;: &#39;test_project&#39;, </span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SmilesClassificationModel</span><span class="p">(</span><span class="s2">&quot;bert&quot;</span><span class="p">,</span> <span class="n">default_model_path</span><span class="p">,</span> <span class="n">num_labels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+                                       <span class="n">args</span><span class="o">=</span><span class="n">model_args</span><span class="p">,</span> <span class="n">use_cuda</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Some weights of the model checkpoint at /home/phs/git/post/update/rxnfp/rxnfp/models/transformers/bert_pretrained were not used when initializing BertForSequenceClassification: [&#39;cls.predictions.bias&#39;, &#39;cls.predictions.transform.dense.weight&#39;, &#39;cls.predictions.transform.dense.bias&#39;, &#39;cls.predictions.transform.LayerNorm.weight&#39;, &#39;cls.predictions.transform.LayerNorm.bias&#39;, &#39;cls.predictions.decoder.weight&#39;, &#39;cls.seq_relationship.weight&#39;, &#39;cls.seq_relationship.bias&#39;]
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/phs/git/post/update/rxnfp/rxnfp/models/transformers/bert_pretrained and are newly initialized: [&#39;classifier.weight&#39;, &#39;classifier.bias&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
