@@ -79,6 +79,22 @@ nb_path: "nbs/09_fine_tune_bert_on_uspto_1k_tpl.ipynb"
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
@@ -101,6 +117,71 @@ nb_path: "nbs/09_fine_tune_bert_on_uspto_1k_tpl.ipynb"
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>canonical_rxn</th>
+      <th>labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>61373</th>
+      <td>C1CCOC1.CC(C)(C)OC(=O)NCC(=O)NCC(=O)O.CCCCCCCC...</td>
+      <td>645</td>
+    </tr>
+    <tr>
+      <th>135235</th>
+      <td>CCN(CC)CCOc1ccc(Cn2c3ccc(OC)cc3c3oc4cc(OCc5ccc...</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>434023</th>
+      <td>CCN(C(C)C)C(C)C.CS(=O)(=O)Cl.C[C@@H]1CCC[C@H](...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>188234</th>
+      <td>CC(C)(C)[Si](C)(C)OCCn1ccc(N)n1.Cc1cccc(C)n1.C...</td>
+      <td>795</td>
+    </tr>
+    <tr>
+      <th>406062</th>
+      <td>CCOC(C)=O.CO.COc1cc(C(=O)O)c(Cl)cc1Br.C[Si](C)...</td>
+      <td>195</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -129,23 +210,6 @@ nb_path: "nbs/09_fine_tune_bert_on_uspto_1k_tpl.ipynb"
 <span class="n">corresponding_labels</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">train_df</span><span class="o">.</span><span class="n">canonical_rxn_with_fragment_info</span><span class="o">!=</span><span class="n">train_df</span><span class="o">.</span><span class="n">canonical_rxn</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="n">train_df</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">final_train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">all_train_reactions</span><span class="p">,</span> <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="n">corresponding_labels</span> <span class="p">})</span>
 <span class="n">final_train_df</span> <span class="o">=</span> <span class="n">final_train_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_train_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
