@@ -72,7 +72,7 @@ nb_path: "nbs/02_transformer_fingerprints.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RXNBERTMinhashFingerprintGenerator" class="doc_header"><code>class</code> <code>RXNBERTMinhashFingerprintGenerator</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L79" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RXNBERTMinhashFingerprintGenerator</code>(<strong><code>model</code></strong>:<code>BertModel</code>, <strong><code>tokenizer</code></strong>:<a href="/rxnfp/tokenization.html#SmilesTokenizer"><code>SmilesTokenizer</code></a>, <strong><code>permutations</code></strong>=<em><code>256</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>, <strong><code>force_no_cuda</code></strong>=<em><code>False</code></em>) :: <a href="/rxnfp/core.html#FingerprintGenerator"><code>FingerprintGenerator</code></a></p>
+<h2 id="RXNBERTMinhashFingerprintGenerator" class="doc_header"><code>class</code> <code>RXNBERTMinhashFingerprintGenerator</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L72" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RXNBERTMinhashFingerprintGenerator</code>(<strong><code>model</code></strong>:<code>BertModel</code>, <strong><code>tokenizer</code></strong>:<a href="/rxnfp/tokenization.html#SmilesTokenizer"><code>SmilesTokenizer</code></a>, <strong><code>permutations</code></strong>=<em><code>256</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>, <strong><code>force_no_cuda</code></strong>=<em><code>False</code></em>) :: <a href="/rxnfp/core.html#FingerprintGenerator"><code>FingerprintGenerator</code></a></p>
 </blockquote>
 <p>Generate RXNBERT fingerprints from reaction SMILES</p>
 
@@ -97,7 +97,7 @@ nb_path: "nbs/02_transformer_fingerprints.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_default_model_and_tokenizer" class="doc_header"><code>get_default_model_and_tokenizer</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L117" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_default_model_and_tokenizer</code>(<strong><code>model</code></strong>=<em><code>'bert_ft'</code></em>, <strong><code>force_no_cuda</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="get_default_model_and_tokenizer" class="doc_header"><code>get_default_model_and_tokenizer</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L110" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_default_model_and_tokenizer</code>(<strong><code>model</code></strong>=<em><code>'bert_ft'</code></em>, <strong><code>force_no_cuda</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 
 </div>
@@ -121,7 +121,7 @@ nb_path: "nbs/02_transformer_fingerprints.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_fingerprints" class="doc_header"><code>generate_fingerprints</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L141" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_fingerprints</code>(<strong><code>rxns</code></strong>:<code>List</code>[<code>str</code>], <strong><code>fingerprint_generator</code></strong>:<a href="/rxnfp/core.html#FingerprintGenerator"><code>FingerprintGenerator</code></a>, <strong><code>batch_size</code></strong>=<em><code>1</code></em>)</p>
+<h4 id="generate_fingerprints" class="doc_header"><code>generate_fingerprints</code><a href="https://github.com/rxn4chemistry/rxnfp/tree/master/rxnfp/transformer_fingerprints.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_fingerprints</code>(<strong><code>rxns</code></strong>:<code>List</code>[<code>str</code>], <strong><code>fingerprint_generator</code></strong>:<a href="/rxnfp/core.html#FingerprintGenerator"><code>FingerprintGenerator</code></a>, <strong><code>batch_size</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 
 </div>

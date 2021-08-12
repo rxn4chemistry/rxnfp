@@ -45,19 +45,12 @@ class RXNBERTFingerprintGenerator(FingerprintGenerator):
                                                 max_length=self.model.config.max_position_embeddings,
                                                 padding=True, truncation=True, return_tensors='pt').to(self.device)
 
-#         inputs = tokenizer.encode_plus(example_rxn,  truncation=False)
-#         bert_inputs = tokenizer.pad(inputs, max_length=512,  return_tensors='pt', pad_to_multiple_of=512).to(self.device)
         with torch.no_grad():
             output = self.model(
                 **bert_inputs
-#                 bert_inputs['input_ids'].unsqueeze(0),
-#                 bert_inputs['attention_mask'].unsqueeze(0),
-#                 bert_inputs['token_type_ids'].unsqueeze(0)
             )
 
 
-        # [CLS] token embeddings
-#         import pdb; pdb.set_trace()
         embeddings = output['last_hidden_state'].squeeze()[0].cpu().numpy().tolist()
         return embeddings
 

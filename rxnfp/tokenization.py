@@ -110,7 +110,7 @@ class RegexTokenizer:
         Returns:
             extracted tokens separated by spaces.
         """
-        tokens = [f"{token}" for token in self.regex.findall(text)]
+        tokens = [token for token in self.regex.findall(text)]
         return tokens
 
 
