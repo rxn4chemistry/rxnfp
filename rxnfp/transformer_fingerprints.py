@@ -18,9 +18,7 @@ from .core import (
     FingerprintGenerator
 )
 from .tokenization import (
-    SmilesTokenizer,
-    convert_reaction_to_valid_features,
-    convert_reaction_to_valid_features_batch,
+    SmilesTokenizer
 )
 
 # Cell
@@ -32,6 +30,7 @@ class RXNBERTFingerprintGenerator(FingerprintGenerator):
     def __init__(self, model: BertModel, tokenizer: SmilesTokenizer, force_no_cuda=False):
         super(RXNBERTFingerprintGenerator).__init__()
         self.model = model
+        self.model.eval()
         self.tokenizer = tokenizer
         self.device = torch.device("cuda" if (torch.cuda.is_available() and not force_no_cuda) else "cpu")
 
@@ -42,31 +41,31 @@ class RXNBERTFingerprintGenerator(FingerprintGenerator):
         Args:
             rxn_smiles (str): precursors>>products
         """
-        bert_inputs = convert_reaction_to_valid_features(rxn_smiles, self.tokenizer)
+        bert_inputs = self.tokenizer.encode_plus(rxn_smiles,
+                                                max_length=self.model.config.max_position_embeddings,
+                                                padding=True, truncation=True, return_tensors='pt').to(self.device)
+
         with torch.no_grad():
-            output, _ = self.model(
-                torch.tensor(bert_inputs.input_ids.astype(np.int64)).unsqueeze(0).to(self.device),
-                torch.tensor(bert_inputs.input_mask.astype(np.int64)).unsqueeze(0).to(self.device),
-                torch.tensor(bert_inputs.segment_ids.astype(np.int64)).unsqueeze(0).to(self.device),
+            output = self.model(
+                **bert_inputs
             )
 
-        # [CLS] token embeddings
-        embeddings = output.squeeze()[0].cpu().numpy().tolist()
+
+        embeddings = output['last_hidden_state'].squeeze()[0].cpu().numpy().tolist()
         return embeddings
 
     def convert_batch(self, rxn_smiles_list: List[str]):
-        bert_inputs = convert_reaction_to_valid_features_batch(
-            rxn_smiles_list, self.tokenizer
-        )
+        bert_inputs = self.tokenizer.batch_encode_plus(rxn_smiles_list,
+                                                       max_length=self.model.config.max_position_embeddings,
+                                                       padding=True, truncation=True, return_tensors='pt').to(self.device)
         with torch.no_grad():
-            output, _ = self.model(
-                torch.tensor(bert_inputs.input_ids.astype(np.int64)).to(self.device),
-                torch.tensor(bert_inputs.input_mask.astype(np.int64)).to(self.device),
-                torch.tensor(bert_inputs.segment_ids.astype(np.int64)).to(self.device),
+            output = self.model(
+                **bert_inputs
             )
 
+
         # [CLS] token embeddings in position 0
-        embeddings = output[:, 0, :].cpu().numpy().tolist()
+        embeddings = output['last_hidden_state'][:, 0, :].cpu().numpy().tolist()
         return embeddings
 
 
@@ -128,7 +127,7 @@ def get_default_model_and_tokenizer(model='bert_ft', force_no_cuda=False):
     model.to(device)
 
     tokenizer = SmilesTokenizer(
-        tokenizer_vocab_path, max_len=model.config.max_position_embeddings
+        tokenizer_vocab_path
     )
     return model, tokenizer
 

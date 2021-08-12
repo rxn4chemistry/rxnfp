@@ -4,7 +4,6 @@
 
 ## Install
 
-
 For all installations, we recommend using `conda` to get the necessary `rdkit` and `tmap` dependencies:
 
 ### From pypi
@@ -35,7 +34,7 @@ Compute a fingerprint from a reaction SMILES
 ```python
 ```
 
-```
+```python
 from rxnfp.transformer_fingerprints import (
     RXNBERTFingerprintGenerator, get_default_model_and_tokenizer, generate_fingerprints
 )
@@ -57,7 +56,7 @@ print(fp[:5])
 
 Or for a list of reactions:
 
-```
+```python
 rxns = [example_rxn, example_rxn]
 fps = rxnfp_generator.convert_batch(rxns)
 print(len(fps), len(fps[0]))
@@ -113,3 +112,7 @@ Our work was first presented in the NeurIPS 2019 workshop for [Machine Learning 
 ```
 
 RXNFP has been developed in a collaboration between IBM Research Europe and the [Reymond group](http://gdb.unibe.ch) at the University of Bern. The classification models are used on the [RXN for Chemistry](https://rxn.res.ibm.com) platform.
+
+Our publication is part of the Nature Portfolio ["Synthesis and enabling technologies" collection](https://www.nature.com/collections/ijabjccjec) and was featured in a News & Views on [Transformers for future medicinal chemists](https://www.nature.com/articles/s42256-021-00299-x). 
+
+Moreover, the `rxnfp` code was reused to train new models on different data as described in [Reusability report: Learning the language of synthetic methods used in medicinal chemistry](https://www.nature.com/articles/s42256-021-00367-2).
